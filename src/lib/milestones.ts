@@ -7,6 +7,7 @@ export type Milestone = {
 
 export const UNLOCK_INTERVAL_MS = 60 * 60 * 1000;
 export const MILESTONE_START_KEY = "ladu-milestone-start";
+export const OPENED_MILESTONES_KEY = "ladu-opened-milestones";
 
 export const milestones: Milestone[] = [
   {

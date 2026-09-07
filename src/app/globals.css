@@ -307,8 +307,9 @@
     0 24px 60px oklch(0.12 0.04 20 / 45%);
 }
 
-.wish-photo {
-  filter: saturate(1.18) contrast(1.08) brightness(1.08);
+.wish-photo-hidden {
+  filter: blur(18px) saturate(0.7) brightness(0.42);
+  transform: scale(1.08);
 }
 
 .wish-card-open {
