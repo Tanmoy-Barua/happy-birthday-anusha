@@ -18,6 +18,6 @@ Then open [http://localhost:43147](http://localhost:43147) (or the port printed 
 3. **The letter** — a Bangla birthday note. If she cannot read it, tap **চিঠি শোনো** to hear it aloud.
 4. **Six little truths** — tap each card.
 5. **Make a wish** — light the candles, then hold to blow them out.
-6. **Happy birthday** — the last page, just for her.
+6. **Happy birthday to my love** — the last page, with her song on a vinyl player.
 
 Edit the Bangla letter in `src/lib/wish-copy.ts`. Listening uses the device’s Bangla voice when one is installed.

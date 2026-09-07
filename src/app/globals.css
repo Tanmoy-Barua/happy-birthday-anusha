@@ -234,6 +234,60 @@
   animation: rise-in 0.8s ease-out both;
 }
 
+@keyframes spin-vinyl {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vinyl {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 17%, #1a1a1a 17.2%, #1a1a1a 18%, #111 18.2%),
+    repeating-radial-gradient(circle at 50% 50%, #0d0d0d 0 1px, #1c1c1c 1px 3px);
+  box-shadow:
+    0 0 0 10px #0a0a0a,
+    0 22px 50px rgb(0 0 0 / 55%),
+    inset 0 0 40px rgb(255 255 255 / 6%);
+}
+
+.vinyl-spin {
+  animation: spin-vinyl 3.6s linear infinite;
+}
+
+.vinyl-grooves {
+  background: repeating-radial-gradient(circle at 50% 50%, transparent 0 6px, rgb(255 255 255 / 4%) 6px 7px);
+}
+
+.vinyl-seek {
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #ff7aa2 0%,
+    #c084fc var(--progress, 0%),
+    rgb(255 255 255 / 16%) var(--progress, 0%)
+  );
+  outline: none;
+}
+
+.vinyl-seek::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: white;
+  box-shadow: 0 0 0 4px rgb(255 122 162 / 25%);
+}
+
+.vinyl-seek::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: white;
+}
+
 .paper {
   background:
     radial-gradient(120% 80% at 10% 0%, oklch(0.99 0.02 85) 0%, transparent 45%),
