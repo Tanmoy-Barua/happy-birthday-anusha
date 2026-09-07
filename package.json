@@ -6,7 +6,7 @@
     "dev": "next dev --hostname 127.0.0.1 --port 43147",
     "build": "next build",
     "start": "next start --hostname 127.0.0.1 --port 43148",
-    "serve:public": "npx --yes serve out -l 43148 --no-clipboard",
+    "serve:public": "next build && next start --hostname 127.0.0.1 --port 43148",
     "lint": "eslint"
   },
   "dependencies": {
