@@ -1,6 +1,10 @@
 # For Ladu — Anusha&apos;s birthday wish
 
-A private birthday website for **Anusha**, called **Ladu**. Open it together: a sealed letter, a handwritten note, six reasons, candles to blow out, and a final sky of gold.
+A private birthday website for **Anusha**, called **Ladu**. Open it together: a sealed letter, a handwritten note, six reasons, ten photo milestones, candles to blow out, and a final sky of gold.
+
+**Live:** [https://happy-birthday-ladu.vercel.app](https://happy-birthday-ladu.vercel.app)
+
+**Milestones:** [https://happy-birthday-ladu.vercel.app/milestones](https://happy-birthday-ladu.vercel.app/milestones)
 
 ## Run locally
 
