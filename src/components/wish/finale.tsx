@@ -21,7 +21,7 @@ export function Finale({ onReplay }: { onReplay: () => void }) {
           href="/milestones"
           className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground hover:bg-primary/90"
         >
-          Return to her ten wishes
+          Open her ten wishes
         </Link>
         <Button
           size="lg"

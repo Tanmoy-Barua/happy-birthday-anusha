@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { formatRemaining, useMilestoneClock } from "@/hooks/use-milestone-clock";
 import { cn } from "@/lib/utils";
 import { milestones } from "@/lib/milestones";
@@ -8,7 +7,7 @@ import { Clock, Lock, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-export function Milestones({ onContinue }: { onContinue?: () => void }) {
+export function Milestones() {
   const clock = useMilestoneClock();
   const [active, setActive] = useState<number | null>(1);
 
@@ -122,18 +121,6 @@ export function Milestones({ onContinue }: { onContinue?: () => void }) {
           );
         })}
       </div>
-
-      {onContinue ? (
-        <div className="mt-10 flex justify-center">
-          <Button
-            size="lg"
-            className="h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90"
-            onClick={onContinue}
-          >
-            Come make a wish
-          </Button>
-        </div>
-      ) : null}
     </div>
   );
 }

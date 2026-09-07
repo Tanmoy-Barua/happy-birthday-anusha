@@ -58,7 +58,7 @@ export function Reasons({ onContinue }: { onContinue: () => void }) {
           className="h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90"
           onClick={onContinue}
         >
-          Open your ten wishes
+          Come make a wish
         </Button>
       </div>
     </div>
