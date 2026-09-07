@@ -39,20 +39,20 @@ export function Milestones() {
         )}
       </div>
 
-      <div className="mt-10 grid gap-5 sm:grid-cols-2">
+      <div className="mt-10 grid gap-8 sm:grid-cols-2">
         {milestones.map((milestone, index) => {
           const unlocked = clock.ready && index < clock.unlockedCount;
           const isActive = active === milestone.id && unlocked;
           const hoursAway = index + 1 - (clock.unlockedCount || 1);
+          const hero = milestone.photos[0];
+          const extra = milestone.photos[1];
 
           return (
             <article
               key={milestone.id}
               className={cn(
-                "overflow-hidden rounded-3xl border transition-all duration-500",
-                unlocked
-                  ? "gold-edge border-primary/35 bg-[oklch(0.2_0.04_20_/_0.55)]"
-                  : "border-white/10 bg-[oklch(0.16_0.03_20_/_0.55)]"
+                "wish-card overflow-hidden rounded-[1.75rem] transition-transform duration-500",
+                unlocked ? "wish-card-open" : "wish-card-locked"
               )}
             >
               <button
@@ -61,33 +61,32 @@ export function Milestones() {
                 onClick={() => unlocked && setActive(isActive ? null : milestone.id)}
                 disabled={!unlocked}
               >
-                <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/4]">
+                <div className="relative aspect-[4/5] overflow-hidden">
                   {unlocked ? (
                     <div className="absolute inset-0">
-                      {milestone.photos.length === 1 ? (
-                        <Image
-                          src={milestone.photos[0]}
-                          alt={milestone.title}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                        />
-                      ) : (
-                        <div className="grid h-full grid-cols-2">
-                          {milestone.photos.map((photo) => (
-                            <span key={photo} className="relative block h-full">
-                              <Image
-                                src={photo}
-                                alt=""
-                                fill
-                                className="object-cover"
-                                sizes="25vw"
-                              />
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                      <Image
+                        src={hero}
+                        alt={milestone.title}
+                        fill
+                        className="wish-photo object-cover object-[center_20%]"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        priority={index === 0}
+                      />
+                      <div className="wish-glow pointer-events-none absolute inset-0" />
+                      <span className="sparkle sparkle-a" />
+                      <span className="sparkle sparkle-b" />
+                      <span className="sparkle sparkle-c" />
+                      {extra ? (
+                        <span className="wish-polaroid">
+                          <Image
+                            src={extra}
+                            alt=""
+                            fill
+                            className="wish-photo object-cover object-[center_18%]"
+                            sizes="40vw"
+                          />
+                        </span>
+                      ) : null}
                     </div>
                   ) : (
                     <div className="dream-lock absolute inset-0 flex flex-col items-center justify-center gap-3">
@@ -99,7 +98,7 @@ export function Milestones() {
                       </p>
                     </div>
                   )}
-                  <div className="absolute left-4 top-4 rounded-full bg-black/45 px-3 py-1 text-xs tracking-[0.28em] text-primary uppercase backdrop-blur-sm">
+                  <div className="absolute left-4 top-4 rounded-full bg-[oklch(0.22_0.05_20_/_0.55)] px-3 py-1 text-xs tracking-[0.28em] text-primary uppercase shadow-sm backdrop-blur-md">
                     {String(milestone.id).padStart(2, "0")}
                   </div>
                 </div>
@@ -109,7 +108,7 @@ export function Milestones() {
                     <h3 className="font-[family-name:var(--font-display)] text-2xl">{milestone.title}</h3>
                   </div>
                   {unlocked ? (
-                    <p className={cn("mt-3 text-base leading-7 text-[oklch(0.92_0.03_80_/_0.9)]", !isActive && "line-clamp-3")}>
+                    <p className={cn("mt-3 text-base leading-7 text-[oklch(0.95_0.02_85)]", !isActive && "line-clamp-3")}>
                       {milestone.wish}
                     </p>
                   ) : (

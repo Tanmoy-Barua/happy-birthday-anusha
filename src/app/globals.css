@@ -306,3 +306,88 @@
     0 0 0 1px oklch(0.78 0.12 55 / 45%),
     0 24px 60px oklch(0.12 0.04 20 / 45%);
 }
+
+.wish-photo {
+  filter: saturate(1.18) contrast(1.08) brightness(1.08);
+}
+
+.wish-card-open {
+  background: linear-gradient(180deg, oklch(0.24 0.05 30 / 80%), oklch(0.16 0.04 20 / 92%));
+  box-shadow:
+    0 0 0 1px oklch(0.86 0.12 70 / 55%),
+    0 18px 50px oklch(0.2 0.08 20 / 45%),
+    0 0 48px oklch(0.72 0.14 55 / 18%);
+}
+
+.wish-card-locked {
+  border: 1px solid oklch(1 0 0 / 10%);
+  background: oklch(0.16 0.03 20 / 55%);
+}
+
+.wish-glow {
+  background:
+    radial-gradient(120% 80% at 50% -10%, oklch(0.9 0.12 80 / 22%), transparent 42%),
+    linear-gradient(180deg, transparent 58%, oklch(0.16 0.04 20 / 55%) 100%);
+  box-shadow: inset 0 0 0 1px oklch(0.9 0.1 75 / 28%);
+}
+
+.wish-polaroid {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.9rem;
+  width: 42%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 0.7rem;
+  padding: 0;
+  transform: rotate(7deg);
+  box-shadow:
+    0 0 0 6px oklch(0.97 0.02 85),
+    0 0 0 7px oklch(0.78 0.12 55 / 70%),
+    0 16px 28px oklch(0.1 0.04 20 / 50%);
+}
+
+.wish-polaroid img {
+  border-radius: 0.45rem;
+}
+
+@keyframes twinkle-dot {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.sparkle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: oklch(0.97 0.06 85);
+  box-shadow: 0 0 12px oklch(0.9 0.12 80);
+  animation: twinkle-dot 2.4s ease-in-out infinite;
+}
+
+.sparkle-a {
+  top: 14%;
+  right: 16%;
+}
+
+.sparkle-b {
+  top: 28%;
+  left: 10%;
+  animation-delay: 0.7s;
+}
+
+.sparkle-c {
+  bottom: 22%;
+  left: 18%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 1.2s;
+}
