@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { VinylPlayer } from "@/components/wish/vinyl-player";
 import { Heart } from "lucide-react";
+import Link from "next/link";
 
 export function Finale({ onReplay }: { onReplay: () => void }) {
   return (
@@ -15,14 +16,22 @@ export function Finale({ onReplay }: { onReplay: () => void }) {
         Anusha · Ladu
       </p>
       <VinylPlayer />
-      <Button
-        size="lg"
-        variant="outline"
-        className="mt-10 h-12 rounded-full border-primary/40 bg-transparent px-8 text-foreground hover:bg-white/5"
-        onClick={onReplay}
-      >
-        Open it again
-      </Button>
+      <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
+        <Link
+          href="/milestones"
+          className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+        >
+          Return to her ten wishes
+        </Link>
+        <Button
+          size="lg"
+          variant="outline"
+          className="h-12 rounded-full border-primary/40 bg-transparent px-8 text-foreground hover:bg-white/5"
+          onClick={onReplay}
+        >
+          Open it again
+        </Button>
+      </div>
     </div>
   );
 }

@@ -6,13 +6,22 @@ import { Envelope } from "@/components/wish/envelope";
 import { Finale } from "@/components/wish/finale";
 import { Gate } from "@/components/wish/gate";
 import { Letter } from "@/components/wish/letter";
+import { Milestones } from "@/components/wish/milestones";
 import { Reasons } from "@/components/wish/reasons";
 import confetti from "canvas-confetti";
 import { useCallback, useState } from "react";
 
-type Stage = "gate" | "envelope" | "letter" | "reasons" | "cake" | "finale";
+type Stage = "gate" | "envelope" | "letter" | "reasons" | "milestones" | "cake" | "finale";
 
-const stages: Stage[] = ["gate", "envelope", "letter", "reasons", "cake", "finale"];
+const stages: Stage[] = [
+  "gate",
+  "envelope",
+  "letter",
+  "reasons",
+  "milestones",
+  "cake",
+  "finale",
+];
 
 function celebrate() {
   const end = Date.now() + 1400;
@@ -61,7 +70,8 @@ export function WishExperience() {
         />
       ) : null}
       {stage === "letter" ? <Letter onContinue={() => go("reasons")} /> : null}
-      {stage === "reasons" ? <Reasons onContinue={() => go("cake")} /> : null}
+      {stage === "reasons" ? <Reasons onContinue={() => go("milestones")} /> : null}
+      {stage === "milestones" ? <Milestones onContinue={() => go("cake")} /> : null}
       {stage === "cake" ? <Cake onContinue={() => go("finale")} /> : null}
       {stage === "finale" ? (
         <Finale
