@@ -86,13 +86,17 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   html {
     @apply font-sans;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: oklch(0.72 0.14 55 / 35%);
+    color: oklch(0.98 0.02 85);
   }
 }
 
@@ -154,6 +158,28 @@
   }
 }
 
+@keyframes smoke-rise {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-28px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes seal-drop {
+  0% {
+    transform: translate(-50%, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + 42px), 86px) rotate(28deg) scale(0.92);
+    opacity: 0.15;
+  }
+}
+
 @keyframes glow-pulse {
   0%,
   100% {
@@ -189,6 +215,15 @@
 
 .flicker {
   animation: flicker 0.7s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+.smoke-rise {
+  animation: smoke-rise 1.4s ease-out infinite;
+}
+
+.seal-drop {
+  animation: seal-drop 0.85s ease-in forwards;
 }
 
 .glow-pulse {
