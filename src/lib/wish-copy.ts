@@ -25,10 +25,27 @@ export const reasons = [
   },
 ];
 
-export const letterParagraphs = [
-  "Happy birthday, my Anusha.",
-  "I made this little world for you because I wanted one place that is only ours tonight — a place you can open with me, slowly, like a gift.",
-  "Ladu, you are the sweetness in my days. The nickname fits, but it still is not enough. You are warmth, mischief, comfort, and the person I look for in every room.",
-  "I hope this year is kind to you. I hope your wishes arrive in both quiet ways and loud ones. And I hope you feel, without a single doubt, how deeply you are loved.",
-  "Today is your day. I am so lucky I get to spend it with you.",
-];
+export const letter = {
+  kicker: "তোমার জন্য লেখা",
+  title: "আমার লাডু",
+  paragraphs: [
+    "শুভ জন্মদিন, আমার অনুশা।",
+    "আজ রাতের জন্য তোমার এই ছোট্ট জগতটা বানিয়েছি — একটা জায়গা যেটা শুধু আমাদের। যেটা তুমি আমার সাথে আস্তে আস্তে খুলতে পারো, উপহারের মতো।",
+    "লাডু, তুমি আমার দিনগুলোর মিষ্টি। ডাকনামটা মানায়, তবুও যথেষ্ট নয়। তুমি উষ্ণতা, দুষ্টুমি, আরাম, আর সেই মানুষটা যাকে আমি প্রতিটা ঘরে খুঁজি।",
+    "ঝগড়া হলেও আমি তোমাকে ভালোবাসি। আর যখন আমি কাজে পুরোপুরি মন দিয়ে থাকি, তখনও তোমাকে এক মুহূর্তের জন্যও ভুলি না।",
+    "এই বছর যেন তোমার প্রতি সদয় হয়। তোমার ইচ্ছেগুলো যেন চুপচাপ আর জোরে, দুভাবেই পূরণ হয়। আর কোনো সন্দেহ ছাড়াই যেন তুমি বুঝতে পারো, তোমাকে কত গভীরভাবে ভালোবাসি।",
+    "আজ তোমার দিন। তোমার সাথে কাটাতে পেরে আমি খুব ভাগ্যবান।",
+  ],
+  signoff: "চিরকাল তোমার",
+  listen: "চিঠি শোনো",
+  listening: "পড়ছি…",
+  stop: "থামো",
+  continue: "আরও আছে তোমার জন্য",
+  unavailable: "এই ফোনে বা কম্পিউটারে বাংলা শোনা যাচ্ছে না। চিঠিটা পড়ে দেখো, লাডু।",
+};
+
+export const letterSpoken = [
+  letter.title,
+  ...letter.paragraphs,
+  letter.signoff,
+].join("। ");

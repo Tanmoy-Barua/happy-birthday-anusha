@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Great_Vibes, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes, Noto_Serif_Bengali, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const display = Playfair_Display({
@@ -21,6 +21,12 @@ const body = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+const bengali = Noto_Serif_Bengali({
+  variable: "--font-bengali",
+  subsets: ["bengali"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "For Ladu — Happy Birthday, Anusha",
   description: "A birthday wish made for Anusha, my Ladu.",
@@ -30,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${script.variable} ${body.variable} h-full antialiased`}
+      className={`${display.variable} ${script.variable} ${body.variable} ${bengali.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">{children}</body>
     </html>
