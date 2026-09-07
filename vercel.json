@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "name": "happy-birthday-anusha",
+  "framework": "nextjs"
+}
