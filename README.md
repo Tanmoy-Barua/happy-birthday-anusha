@@ -11,6 +11,15 @@ npm run dev
 
 Then open [http://localhost:43147](http://localhost:43147) (or the port printed in the terminal).
 
+To share a fast copy with someone else:
+
+```bash
+npm run build
+npm run serve:public
+```
+
+That serves the finished site on port 43148.
+
 ## The evening, in order
 
 1. **Open your gift** — her name, and a quiet beginning.
