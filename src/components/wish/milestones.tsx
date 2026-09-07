@@ -1,6 +1,7 @@
 "use client";
 
 import { HeartLock } from "@/components/wish/heart-lock";
+import { WishQuiz } from "@/components/wish/wish-quiz";
 import { formatRemaining, useMilestoneClock } from "@/hooks/use-milestone-clock";
 import { cn } from "@/lib/utils";
 import { OPENED_MILESTONES_KEY, milestones } from "@/lib/milestones";
@@ -21,6 +22,7 @@ function readOpened(): number[] {
 export function Milestones() {
   const clock = useMilestoneClock();
   const [opened, setOpened] = useState<number[]>([]);
+  const [asking, setAsking] = useState<number | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => setOpened(readOpened()), 0);
@@ -36,6 +38,8 @@ export function Milestones() {
     });
   };
 
+  const askingMilestone = milestones.find((item) => item.id === asking) ?? null;
+
   return (
     <div className="relative z-10 mx-auto flex min-h-dvh w-full max-w-6xl flex-col px-4 pb-28 pt-12">
       <div className="text-center">
@@ -44,7 +48,7 @@ export function Milestones() {
           For my Ladu
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-lg italic text-muted-foreground">
-          Each memory sleeps behind a heart. When its hour comes, tap the lock of love to open it.
+          Each memory sleeps behind a heart. When its hour comes, tap the lock and answer a silly question.
         </p>
       </div>
 
@@ -83,13 +87,13 @@ export function Milestones() {
               <button
                 type="button"
                 className="w-full text-left"
-                onClick={() => ready && openWish(milestone.id)}
+                onClick={() => ready && !revealed && setAsking(milestone.id)}
                 disabled={!ready}
                 aria-label={
                   revealed
                     ? milestone.title
-                    : ready
-                      ? `Open wish ${milestone.id}`
+                      : ready
+                      ? `Answer to open wish ${milestone.id}`
                       : `Wish ${milestone.id} is still locked`
                 }
               >
@@ -143,7 +147,7 @@ export function Milestones() {
                               : ""}
                           </p>
                         ) : (
-                          <p className="text-sm text-white/80">A lock of love</p>
+                        <p className="text-sm text-white/80">Answer to unlock</p>
                         )}
                       </div>
                     )}
@@ -166,7 +170,7 @@ export function Milestones() {
                   ) : (
                     <p className="mt-3 text-sm italic text-white/45">
                       {ready
-                        ? "Tap the heart lock to open this memory."
+                        ? "Tap the heart and answer the silly question."
                         : "A wish is sleeping here."}
                     </p>
                   )}
@@ -176,6 +180,16 @@ export function Milestones() {
           );
         })}
       </div>
+      {askingMilestone ? (
+        <WishQuiz
+          milestone={askingMilestone}
+          onClose={() => setAsking(null)}
+          onUnlock={() => {
+            openWish(askingMilestone.id);
+            setAsking(null);
+          }}
+        />
+      ) : null}
     </div>
   );
 }
